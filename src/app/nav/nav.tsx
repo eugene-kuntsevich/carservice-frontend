@@ -1,11 +1,11 @@
 import React from 'react';
 import './nav.scss';
 import {BrowserRouter as Router, Link, Route, Switch,} from "react-router-dom";
-import {WelcomePage} from "../welcome/welcom-page";
-import {Car} from "../car/car";
-import {Master} from "../master/master";
-import {Order} from "../order/order";
-import {OrderStatus} from "../order-status/order-status";
+import {WelcomePage} from "../pages/welcome/welcom-page";
+import {Car} from "../pages/car/car";
+import {Master} from "../pages/master/master";
+import {Order} from "../pages/order/order";
+import {OrderStatus} from "../pages/order-status/order-status";
 
 export const Nav: React.FC<any> = () => {
   return (
