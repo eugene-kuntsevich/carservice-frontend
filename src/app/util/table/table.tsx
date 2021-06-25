@@ -10,7 +10,7 @@ export const Table: React.FC<{ headers: string[], body: any[] }> = ({headers, bo
         {<TableRow row={headers}/>}
         </thead>
         <tbody>
-        {body.map(row => <TableRow row={row}/>)}
+        {body.map((row, key) => <TableRow row={row} key={key}/>)}
         </tbody>
       </table>
   )

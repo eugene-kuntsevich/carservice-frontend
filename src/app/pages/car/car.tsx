@@ -1,16 +1,18 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './car.scss';
 import {Table} from "../../util/table/table";
 import {CarModel} from "../../model/car-model";
-import {ClientModel} from "../../model/client-model";
+import {getCarList} from "../../service/car-service";
 
 export const Car: React.FC<any> = () => {
-  const headers = ['Id', 'Car Nmber', 'Client Name', 'Client Phone', 'Order Id'];
-  const carsList = // TODO test data, should be replaced by server call
-      [
-        new CarModel(1, '1234 GK-3', new ClientModel(1, 'John', 'Smith', '+345-78-2590572'), null),
-        new CarModel(2, '5678 WC-5', new ClientModel(2, 'Max', 'Payne', '+379-21-7370861'), null)
-      ];
+  const headers = ['Id', 'Car Number', 'Client Name', 'Client Phone', 'Order Id'];
+  const [carsList, setCars] = useState<CarModel[]>([]);
+
+  useEffect(() => {
+    getCarList().then(items => {
+      setCars(items);
+    })
+  }, [])
 
   function convertCarsToArray(carsList: CarModel[]): string[][] {
     return carsList.map(car => convertCarToArray(car));
