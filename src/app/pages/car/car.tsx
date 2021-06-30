@@ -36,7 +36,8 @@ export const Car: React.FC<any> = () => {
           <Table headers={headers} body={convertCarsToArray(carsList)}
                  setSelectedRowId={setSelectedRowId}/>
         </div>
-        {selectedRowId > -1 && <DetailedCarView selectedCarId={selectedRowId}/>}
+        {selectedRowId > -1 &&
+        <DetailedCarView selectedCarIdentity={selectedRowId}/>}
       </div>
   )
 }
