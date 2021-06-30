@@ -3,10 +3,12 @@ import './car.scss';
 import {Table} from "../../util/table/table";
 import {CarModel} from "../../model/car-model";
 import {getCarList} from "../../service/car-service";
+import {DetailedCarView} from "./detailed-view/detailed-car-view";
 
 export const Car: React.FC<any> = () => {
   const headers = ['Id', 'Car Number', 'Client Name', 'Client Phone', 'Order Id'];
   const [carsList, setCars] = useState<CarModel[]>([]);
+  const [selectedRowId, setSelectedRowId] = useState<number>(-1);
 
   useEffect(() => {
     getCarList().then(items => {
@@ -30,7 +32,11 @@ export const Car: React.FC<any> = () => {
 
   return (
       <div>
-        <Table headers={headers} body={convertCarsToArray(carsList)}/>
+        <div className={"half"}>
+          <Table headers={headers} body={convertCarsToArray(carsList)}
+                 setSelectedRowId={setSelectedRowId}/>
+        </div>
+        {selectedRowId > -1 && <DetailedCarView selectedCarId={selectedRowId}/>}
       </div>
   )
 }

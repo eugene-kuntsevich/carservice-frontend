@@ -4,7 +4,7 @@ import './table-row.scss';
 export const TableRow: React.FC<{
   row: string[],
   rowKey?: number,
-  toggleClass: any,
+  toggleClass?: any,
   selectedRowKey?: number
 }> = ({
         row,
