@@ -16,7 +16,7 @@ export const DetailedCarView: React.FC<{ selectedCarIdentity: number }> = ({
   }, [selectedCarIdentity])
 
   function submitForm(): void {
-    updateCar(selectedCar).then();
+    updateCar(selectedCar);
   }
 
   function changeCarNumberHandler(e: ChangeEvent<HTMLInputElement>): void {
@@ -40,7 +40,7 @@ export const DetailedCarView: React.FC<{ selectedCarIdentity: number }> = ({
   }
 
   return (
-      <div className={'right'}>
+      <div className={'left'}>
         <form onSubmit={submitForm}>
           <p>car id: <input type="text" value={selectedCarIdentity} disabled={true}/></p>
 
